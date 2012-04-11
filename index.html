@@ -28,6 +28,19 @@
         display: none;
       }
       
+      .bubbletree-container {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        clear: both;
+      }
+      
+      .bubbletree-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+      
       .bubbletree .desc,
       .bubbletree .label2 {
         line-height: 1.2em;
@@ -38,9 +51,11 @@
       }
     </style>
     
-<div class="bubbletree-wrapper">
-		<div class="bubbletree"></div>
-	</div>
+    <div class="bubbletree-container clearfix">
+      <div class="bubbletree-wrapper">
+    		<div class="bubbletree"></div>
+    	</div>
+  	</div>
     
     <p class="footnote"></p>
   
@@ -122,11 +137,13 @@
           var tooltip = function(event) {
             // Don't show for the big total
             if (event.type == 'SHOW' && event.node.label != 'Total' && event.node.label != '') {
+              console.log(event);
               // show tooltip
               $tooltip.css({ 
-                left: event.mousePos.x + 4, 
-                top: event.mousePos.y + 4 
+                left: $('.bubbletree-wrapper').offset().left + event.mousePos.x + 4, 
+                top: $('.bubbletree-wrapper').offset().top + event.mousePos.y + 4 
               });
+              console.log($('.bubbletree-wrapper').offset().left);
               $tooltip.html(event.node.label + ': <strong>' + event.node.famount + '</strong>');
               var bubble = event.target;
           
