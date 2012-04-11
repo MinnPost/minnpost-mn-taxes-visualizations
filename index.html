@@ -52,25 +52,38 @@
       // Namespace jQuery
       (function($) {
         $(document).ready(function() {
-
-
-			var data = {
-				label: 'Total',
-				amount: 100,
-				children: [
-					{ label: 'First child', amount: 30 },
-					{ label: 'Second child', amount: 40 },
-					{ label: 'Third child', amount: 30, color: '#ff3300' }
-				]
-			};
-			
-			new BubbleTree({
-				data: data,
-				container: '.bubbletree'
-			});
-			
-        
-        
+          // Build data object
+    			var data = { label: 'Total', amount: 23796000000, color: '#801019', children: [
+            { label: 'Total Local Taxes', amount: 6915000000, color: '#107F3E', children: [
+              { label: 'Property Taxes', amount: 6648000000, color: '#197F10', children: [
+                { label: 'General Property Tax', amount: 6562000000, color: '#107F3E', children: [
+                  { label: 'Homeowners (before PTR)', amount: 3691000000, color: '#24B616' },
+                  { label: 'Residential recreational property', amount: 165000000, color: '#24B616' },
+                  { label: 'Commercial', amount: 1233000000, color: '#24B616' },
+                  { label: 'Industrial', amount: 349000000, color: '#24B616' },
+                  { label: 'Farm (other than residence)', amount: 164000000, color: '#24B616' },
+                  { label: 'Rental Housing (before PTR)', amount: 780000000, color: '#24B616' },
+                  { label: 'Utility', amount: 180000000, color: '#24B616' }
+                ]},
+                { label: 'Mining Production Taxes (taconite)', amount: 86000000, color: '#107F76' },
+                { label: '', amount: 0, color: '#FFFFFF' } // placeholder
+              ]},
+              { label: 'Taxes on consumption', amount: 267000000, color: '#517F10', children: [
+                { label: 'Local Sales Taxes', amount: 157000000, color: '#73B616' },
+                { label: 'Local Gross Earnings Taxes', amount: 110000000, color: '#73B616' }
+              ]},
+              { label: '', amount: 0, color: '#FFFFFF' } // placeholder
+            ]},
+            { label: 'Total State Taxes', amount: 16881000000, color: '#76107F' },
+            { label: '', amount: 0, color: '#FFFFFF' } // placeholder
+    		  ]};
+    			
+    			//console.log(data);
+    			
+    			new BubbleTree({
+    				data: data,
+    				container: '.bubbletree'
+    			});
         });
       })(jQuery);
     </script>
