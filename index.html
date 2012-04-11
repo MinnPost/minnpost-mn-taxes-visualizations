@@ -137,13 +137,11 @@
           var tooltip = function(event) {
             // Don't show for the big total
             if (event.type == 'SHOW' && event.node.label != 'Total' && event.node.label != '') {
-              console.log(event);
               // show tooltip
               $tooltip.css({ 
-                left: $('.bubbletree-wrapper').offset().left + event.mousePos.x + 4, 
-                top: $('.bubbletree-wrapper').offset().top + event.mousePos.y + 4 
+                left: (0 - $('.bubbletree-wrapper').offset().left) + event.mousePos.x + 4, 
+                top: (0 - $('.bubbletree-wrapper').offset().top) + event.mousePos.y + 4 
               });
-              console.log($('.bubbletree-wrapper').offset().left);
               $tooltip.html(event.node.label + ': <strong>' + event.node.famount + '</strong>');
               var bubble = event.target;
           
