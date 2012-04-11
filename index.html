@@ -28,7 +28,8 @@
         display: none;
       }
       
-      .bubbletree .desc {
+      .bubbletree .desc,
+      .bubbletree .label2 {
         line-height: 1.2em;
       }
       
@@ -79,10 +80,38 @@
               ]},
               { label: '', amount: 0, color: '#FFFFFF' } // placeholder
             ]},
-            { label: 'Total State Taxes', amount: 16881000000, color: '#76107F' },
+            { label: 'Total State Taxes', amount: 16881000000, color: '#76107F', children: [
+              { label: 'Total Property Taxes', amount: 1401000000, color: '#3E107F', children: [
+                { label: 'State Property Tax', amount: 732000000, color: '#1673B6', children: [
+                  { label: 'Residential recreational property', amount: 35000000, color: '#2595E4' },
+                  { label: 'Commercial', amount: 497000000, color: '#5CAFEB' },
+                  { label: 'Industrial', amount: 140000000, color: '#1624B6' },
+                  { label: 'Utility', amount: 60000000, color: '#16B6A8' }
+                ]},
+                { label: 'Motor vehicle registration tax', amount: 490000000, color: '#16B6A8' },
+                { label: 'Mortgage and deed taxes', amount: 180000000, color: '#16B659' }
+              ]},
+              { label: 'Total Consumption Taxes', amount: 7506000000, color: '#A816B6', children: [
+                { label: 'Total sales tax', amount: 5409000000, color: '#1673B6', children: [
+                  { label: 'General sales/use tax', amount: 4932000000, color: '#2595E4' },
+                  { label: 'Sales tax on motor vehicles', amount: 477000000, color: '#5CAFEB' }
+                ]},
+                { label: 'Motor fuels excise taxes', amount: 699000000, color: '#16B6A8' },
+                { label: 'Alcoholic beverage excise taxes', amount: 75000000, color: '#16B659' },
+                { label: 'Cigarette and tobacco excise taxes', amount: 426000000, color: '#24B616' },
+                { label: 'Insurance premiums taxes', amount: 351000000, color: '#1624B6' },
+                { label: 'Gambling taxes', amount: 42000000, color: '#68EB5C' },
+                { label: 'MinnesotaCare taxes', amount: 439000000, color: '#35E425' },
+                { label: 'Solid waste management taxes', amount: 67000000, color: '#73B616' }
+              ]},
+              { label: 'Total Income and Estate Taxes', amount: 8378000000, color: '#7F1051', children: [
+                { label: 'Individual income tax', amount: 7374000000, color: '#7F3E10' },
+                { label: 'Corporation franchise tax', amount: 881000000, color: '#7F7610' },
+                { label: 'Estate tax', amount: 123000000, color: '#7F1019' }
+              ]}
+            ]},
             { label: '', amount: 0, color: '#FFFFFF' } // placeholder
     		  ]};
-    			
     			//console.log(data);
           
           // Create tooltip
