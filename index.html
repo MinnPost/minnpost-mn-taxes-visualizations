@@ -19,12 +19,17 @@
   <!-- Embed Start -->
   <div class="node-body fieldlayout node-field-body">
     <style type="text/css">
-      @import url('https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/build/bubbletree.css');
+      @import url('https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/src/css/bubbletree.css');
+      @import url('https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/src/css/tooltip.css');
     </style>
     <style type="text/css">
       .js-dependent,
       .hide {
         display: none;
+      }
+      
+      .bubbletree .desc {
+        line-height: 1.2em;
       }
       
       /** Media queries **/
@@ -79,10 +84,35 @@
     		  ]};
     			
     			//console.log(data);
+          
+          // Create tooltip
+          var $tooltip = $('<div class="tooltip">Tooltip</div>');
+          $('.bubbletree').append($tooltip);
+          $tooltip.hide();
+          
+          var tooltip = function(event) {
+            // Don't show for the big total
+            if (event.type == 'SHOW' && event.node.label != 'Total' && event.node.label != '') {
+              // show tooltip
+              $tooltip.css({ 
+                left: event.mousePos.x + 4, 
+                top: event.mousePos.y + 4 
+              });
+              $tooltip.html(event.node.label + ': <strong>' + event.node.famount + '</strong>');
+              var bubble = event.target;
+          
+              $tooltip.show();
+            }
+            else {
+              // hide tooltip
+              $tooltip.hide();
+            }
+          };
     			
-    			new BubbleTree({
+    			var thisBubblw = new BubbleTree({
     				data: data,
-    				container: '.bubbletree'
+    				container: '.bubbletree',
+    				tooltipCallback: tooltip
     			});
         });
       })(jQuery);
