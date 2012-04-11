@@ -74,7 +74,7 @@
       (function($) {
         $(document).ready(function() {
           // Build data object
-    			var data = { label: 'Total', amount: 23796000000, color: '#801019', children: [
+    			var data = { label: 'Total', amount: 23796000000, color: '#801019', taxonomy: "tester", name: "testing", children: [
             { label: 'Total Local Taxes', amount: 6915000000, color: '#107F3E', children: [
               { label: 'Property Taxes', amount: 6648000000, color: '#197F10', children: [
                 { label: 'General Property Tax', amount: 6562000000, color: '#107F3E', children: [
@@ -128,6 +128,13 @@
             { label: '', amount: 0, color: '#FFFFFF' } // placeholder
     		  ]};
     			//console.log(data);
+    			
+    			// Styles
+    			// https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/styles/icons/admin-culture.svg
+    			BubbleTree.Styles = BubbleTree.Styles || {};
+          BubbleTree.Styles.tester = {
+            'testing': { icon: 'admin-culture.svg' }
+          };
           
           // Create tooltip
           var $tooltip = $('<div class="tooltip">Tooltip</div>');
@@ -156,7 +163,12 @@
     			var thisBubblw = new BubbleTree({
     				data: data,
     				container: '.bubbletree',
-    				tooltipCallback: tooltip
+    				tooltipCallback: tooltip,
+						//bubbleType: 'icon',
+						//rootPath: '',
+						//bubbleStyles: {
+						//	'tester':  BubbleTree.Styles.tester
+						//}
     			});
         });
       })(jQuery);
