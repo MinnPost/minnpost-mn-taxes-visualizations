@@ -53,7 +53,7 @@
         margin-top: 1em;
       }
       
-      h3.bubbletree-title {
+      .bubbletree-title {
         margin-bottom: 1em;
       }
       
@@ -62,7 +62,7 @@
       }
     </style>
     
-    <h3 class="bubbletree-title">Projected 2013 State and Local Tax Collections by Type of Tax and Taxpayer Category</h3>
+    <h4 class="bubbletree-title">Projected 2013 State and Local Tax Collections by Type of Tax and Taxpayer Category</h4>
     
     <div class="bubbletree-container clearfix">
       <div class="bubbletree-wrapper">
@@ -70,7 +70,7 @@
     	</div>
   	</div>
     
-    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  PTR = ?.  <sub>1</sub> Includes taconite/iron ore occupation tax.  <sub>2</sub> Includes Health Impact Fee.  <sub>3</sub> Includes resorts and railroads.  <sub>4</sub> Farm includes timber.</p>
+    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  PTR = Property Tax Refund.  <sub>1</sub> Includes taconite/iron ore occupation tax.  <sub>2</sub> Includes Health Impact Fee.  <sub>3</sub> Includes resorts and railroads.  <sub>4</sub> Farm includes timber.</p>
   
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery-1.5.2.min.js"><\/script>')</script>
     
@@ -82,6 +82,38 @@
     <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/build/bubbletree.js"></script>
     <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/styles/cofog.js"></script>
     <script type="text/javascript">
+      // Redefine to fix IE issues
+      vis4.DelayedTask = function(/* delay, scope, func, args */) {
+	
+        var me = this;
+        
+        me.init = function(args) {
+        	var me = this, taskArgs = [];	
+        	for (var i = 0; i < args.length; i++) {
+        		if (i > 2) taskArgs.push(args[i]);
+        	}
+        	me.func = args[2];
+        	me.scope = args[1];
+        	me.args = taskArgs;
+        	me.running = true;
+        	me.timer = window.setTimeout(this.run.bind(me), args[0]);
+        };
+        
+        me.run = function() {
+        	var me = this;
+        	me.func.apply(me.scope, me.args);
+        	me.running = false;
+        };
+        
+        me.cancel = function() {
+        	vis4.log('canceling timer', this);
+        	window.clearTimeout(this.timer);
+        	this.running = false;
+        };
+        
+        me.init(arguments);
+      };
+    
       // Namespace jQuery
       (function($) {
         $(document).ready(function() {
@@ -148,7 +180,7 @@
             'testing': { icon: 'admin-culture.svg' }
           };
           
-          // Create tooltip
+          // Create tooltip. 
           var $tooltip = $('<div class="tooltip">Tooltip</div>');
           $('.bubbletree').append($tooltip);
           $tooltip.hide();
@@ -172,10 +204,10 @@
             }
           };
     			
-    			var thisBubblw = new BubbleTree({
+    			var thisBubble = new BubbleTree({
     				data: data,
     				container: '.bubbletree',
-    				tooltipCallback: tooltip,
+    				tooltipCallback: tooltip
 						//bubbleType: 'icon',
 						//rootPath: '',
 						//bubbleStyles: {
