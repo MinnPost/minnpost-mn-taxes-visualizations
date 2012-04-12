@@ -1,4 +1,6 @@
-A [bubble tree](http://okfnlabs.org/bubbletree/) that breaks down tax sources in Minnesota.
+A number of visualizations around aggregate Minnesota tax data.  Including:
+
+ - A [bubble tree](http://okfnlabs.org/bubbletree/) that breaks down tax sources in Minnesota for projected 2013 data.
 
 ## Data
 
