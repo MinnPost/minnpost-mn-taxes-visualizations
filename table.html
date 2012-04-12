@@ -17,9 +17,9 @@
 
 
   <!-- Embed Start -->
-  <div class="node-body fieldlayout node-field-body">
+  <div class="node-body fieldlayout node-field-body minndata-embed">
     <style type="text/css">
-      @import url('https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/src/css/bubbletree.css');
+    	@import url('http://data.minnpost.s3.amazonaws.com/js/datatables-1.9.0/css/jquery.dataTables.css');
     </style>
     <style type="text/css">
       .js-dependent,
@@ -32,6 +32,13 @@
         font-style: italic;
         color: #414141;
         margin-top: 1em;
+      }
+      
+      .minndata-embed table tfoot tr {
+        background-color: #DDDDDD;
+      }
+      .minndata-embed table tfoot tr.row-totals {
+        background-color: #AAAAAA;
       }
       
       /** Media queries **/
@@ -47,7 +54,7 @@
         </tr>
       </thead>
       <tfoot>
-        <tr>
+        <tr class="row-totals">
           <td>Totals</td><td>$198,138,396</td><td>4.1%</td><td>2.3%</td><td>2.6%</td><td>11.5%</td>
         </tr>
         <tr>
@@ -91,16 +98,65 @@
       </tbody>
     </table>
     
-    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>. </p>
+    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  Each row is a decile, which is 10% of the population, unless otherwise noted.</p>
   
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery-1.5.2.min.js"><\/script>')</script>
-    
-    <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery.history.js"></script>
+    <script type="text/javascript" src="http://data.minnpost.s3.amazonaws.com/js/datatables-1.9.0/js/jquery.dataTables.min.js"></script>
     
     <script type="text/javascript">
+      jQuery.fn.dataTableExt.oSort['currency-asc'] = function(a,b) {
+          /* Remove any formatting */
+          var x = a == "-" ? 0 : a.replace( /[^\d\-\.]/g, "" );
+          var y = b == "-" ? 0 : b.replace( /[^\d\-\.]/g, "" );
+           
+          /* Parse and return */
+          x = parseFloat( x );
+          y = parseFloat( y );
+          return x - y;
+      };
+       
+      jQuery.fn.dataTableExt.oSort['currency-desc'] = function(a,b) {
+          var x = a == "-" ? 0 : a.replace( /[^\d\-\.]/g, "" );
+          var y = b == "-" ? 0 : b.replace( /[^\d\-\.]/g, "" );
+           
+          x = parseFloat( x );
+          y = parseFloat( y );
+          return y - x;
+      };jQuery.fn.dataTableExt.oSort['formatted-num-asc'] = function(a,b) {
+          /* Remove any formatting */
+          var x = a.match(/\d/) ? a.replace( /[^\d\-\.]/g, "" ) : 0;
+          var y = b.match(/\d/) ? b.replace( /[^\d\-\.]/g, "" ) : 0;
+            
+          /* Parse and return */
+          return parseFloat(x) - parseFloat(y);
+      };
+        
+      jQuery.fn.dataTableExt.oSort['formatted-num-desc'] = function(a,b) {
+          var x = a.match(/\d/) ? a.replace( /[^\d\-\.]/g, "" ) : 0;
+          var y = b.match(/\d/) ? b.replace( /[^\d\-\.]/g, "" ) : 0;
+            
+          return parseFloat(y) - parseFloat(x);
+      };
+        
+        
       // Namespace jQuery
       (function($) {
         $(document).ready(function() {
+          // DataTable
+          var amendmentTable = $('.minndata-embed table').dataTable({
+            'iDisplayLength': 50,
+            'bFilter': false,
+            'bPaginate': false,
+            'bInfo': false,
+            'aoColumns': [
+              { 'sType': 'currency' },
+              { 'sType': 'currency' },
+              { 'sType': 'formatted-num' },
+              { 'sType': 'formatted-num' },
+              { 'sType': 'formatted-num' },
+              { 'sType': 'formatted-num' }
+            ]
+          });
         });
       })(jQuery);
     </script>
