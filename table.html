@@ -34,6 +34,9 @@
         margin-top: 1em;
       }
       
+      .minndata-embed table thead {
+        font-size: .75em;
+      }
       .minndata-embed table tfoot tr {
         background-color: #DDDDDD;
       }
@@ -58,55 +61,52 @@
     <table>
       <thead>
         <tr>
-          <th>Income</th><th>Total Household Income</th><th>Ind Income Tax</th><th>State Sales Tax Total</th><th>Total Residential Local Property Taxes</th><th>Total State and Local Taxes</th>
+          <th>Income</th><th>Percent of Total Household Income</th><th>Ind Income Tax</th><th>State Sales Tax Total</th><th>Total Residential Local Property Taxes</th><th>Total State and Local Taxes</th>
         </tr>
       </thead>
       <tfoot>
-        <tr class="row-totals">
-          <td>Totals</td><td>$198,138,396</td><td>4.1%</td><td>2.3%</td><td>2.6%</td><td>11.5%</td>
+        <tr>
+          <td>Top 5% (Over $200,907)</td><td>30.44%</td><td>5.6%</td><td>1.4%</td><td>1.4%</td><td>10.1</td>
         </tr>
         <tr>
-          <td>Top 5% (Over $200,907)</td><td>$60,331,808</td><td>5.6%</td><td>1.4%</td><td>1.4%</td><td>10.1</td>
-        </tr>
-        <tr>
-          <td>Top 1% (Over $472,626)</td><td>$30,927,164</td><td>6.0%</td><td>1.2%</td><td>1.0%</td><td>9.7</td>
+          <td>Top 1% (Over $472,626)</td><td>15.60%</td><td>6.0%</td><td>1.2%</td><td>1.0%</td><td>9.7</td>
         </tr>
       </tfoot>
       <tbody>
         <tr>
-          <td class="income">$11,298 & under</td><td>$1,742,103</td><td>-1.6%</td><td>10.4%</td><td>10.2%</td><td>30.5%</td>
+          <td class="income">$11,298 & under</td><td>0.87%</td><td>-1.6%</td><td>10.4%</td><td>10.2%</td><td>30.5%</td>
         </tr>
         <tr>
-          <td class="income">$11,299 - $18,732</td><td>3,964,981</td><td>-0.8%</td><td>5.2%</td><td>3.8%</td><td>12.1%</td>
+          <td class="income">$11,299 - $18,732</td><td>2.00%</td><td>-0.8%</td><td>5.2%</td><td>3.8%</td><td>12.1%</td>
         </tr>
         <tr>
-          <td class="income">$18,733 - $26,788</td><td>5,962,092</td><td>0.2%</td><td>4.0%</td><td>3.5%</td><td>11.0%</td>
+          <td class="income">$18,733 - $26,788</td><td>3.00%</td><td>0.2%</td><td>4.0%</td><td>3.5%</td><td>11.0%</td>
         </tr>
         <tr>
-          <td class="income">$26,789 - $35,561</td><td>8,181,343</td><td>1.3%</td><td>3.4%</td><td>3.7%</td><td>11.6%</td>
+          <td class="income">$26,789 - $35,561</td><td>4.12%</td><td>1.3%</td><td>3.4%</td><td>3.7%</td><td>11.6%</td>
         </tr>
         <tr>
-          <td class="income">$35,562  -  $46,044</td><td>10,660,348</td><td>2.5%</td><td>3.0%</td><td>3.5%</td><td>12.1%</td>
+          <td class="income">$35,562  -  $46,044</td><td>5.38%</td><td>2.5%</td><td>3.0%</td><td>3.5%</td><td>12.1%</td>
         </tr>
         <tr>
-          <td class="income">$46,045  -  $59,437</td><td>13,828,214</td><td>3.1%</td><td>2.7%</td><td>3.3%</td><td>12.1%</td>
+          <td class="income">$46,045  -  $59,437</td><td>5.38%</td><td>3.1%</td><td>2.7%</td><td>3.3%</td><td>12.1%</td>
         </tr>
         <tr>
-          <td class="income">$59,438  -  $76,276</td><td>17,787,530</td><td>3.5%</td><td>2.5%</td><td>3.1%</td><td>12.1%</td>
+          <td class="income">$59,438  -  $76,276</td><td>8.97%</td><td>3.5%</td><td>2.5%</td><td>3.1%</td><td>12.1%</td>
         </tr>
         <tr>
-          <td class="income"> $76,277  -  $99,386</td><td>22,946,740</td><td>4.1%</td><td>2.3%</td><td>3.0%</td><td>12.3%</td>
+          <td class="income"> $76,277  -  $99,386</td><td>11.58%</td><td>4.1%</td><td>2.3%</td><td>3.0%</td><td>12.3%</td>
         </tr>
         <tr>
-          <td class="income">$99,387  -  $142,225</td><td>30,895,132</td><td>4.5%</td><td>2.1%</td><td>2.6%</td><td>11.9%</td>
+          <td class="income">$99,387  -  $142,225</td><td>15.59%</td><td>4.5%</td><td>2.1%</td><td>2.6%</td><td>11.9%</td>
         </tr>
         <tr>
-          <td class="income">$142,226  & over</td><td>82,169,914</td><td>5.4%</td><td>1.5%</td><td>1.7%</td><td>10.4%</td>
+          <td class="income">$142,226  & over</td><td>41.47%</td><td>5.4%</td><td>1.5%</td><td>1.7%</td><td>10.4%</td>
         </tr>
       </tbody>
     </table>
     
-    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  Each row is a decile, which is 10% of the population, unless otherwise noted.</p>
+    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  Total projected household income is $198,138,396,000.  Each row is a decile, which is 10% of the population, unless otherwise noted.</p>
     
     <h4>Total State 2012-13 Operating Budget, February 2012 Forecast</h4>
     
