@@ -46,6 +46,13 @@
         line-height: 1.2em;
       }
       
+      .footnote {
+        font-size: .75em;
+        font-style: italic;
+        color: #414141;
+        margin-top: 1em;
+      }
+      
       /** Media queries **/
       @media all and (max-width: 750px) {
       }
@@ -57,8 +64,7 @@
     	</div>
   	</div>
     
-    <p class="footnote"></p>
-  
+    <p class="footnote">Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  PTR = ?.  <sub>1</sub> Includes taconite/iron ore occupation tax.  <sub>2</sub> Includes Health Impact Fee.  <sub>3</sub> Includes resorts and railroads.  <sub>4</sub> Farm includes timber.</p>
   
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery-1.5.2.min.js"><\/script>')</script>
     
@@ -80,9 +86,9 @@
                 { label: 'General Property Tax', amount: 7879000000, color: '#107F3E', children: [
                   { label: 'Homeowners (before PTR)', amount: 4044000000, color: '#24B616' },
                   { label: 'Residential recreational property', amount: 188000000, color: '#24B616' },
-                  { label: 'Commercial', amount: 1494000000, color: '#24B616' },
+                  { label: 'Commercial <sub>3</sub>', amount: 1494000000, color: '#24B616' },
                   { label: 'Industrial', amount: 417000000, color: '#24B616' },
-                  { label: 'Farm (other than residence)', amount: 532000000, color: '#24B616' },
+                  { label: 'Farm (other than residence) <sub>4</sub>', amount: 532000000, color: '#24B616' },
                   { label: 'Rental Housing (before PTR)', amount: 991000000, color: '#24B616' },
                   { label: 'Utility', amount: 213000000, color: '#24B616' }
                 ]},
@@ -99,7 +105,7 @@
               { label: 'Total Property Taxes', amount: 1550000000, color: '#3E107F', children: [
                 { label: 'State Property Tax', amount: 798000000, color: '#1673B6', children: [
                   { label: 'Residential recreational property', amount: 40000000, color: '#2595E4' },
-                  { label: 'Commercial', amount: 528000000, color: '#5CAFEB' },
+                  { label: 'Commercial <sub>3</sub>', amount: 528000000, color: '#5CAFEB' },
                   { label: 'Industrial', amount: 149000000, color: '#1624B6' },
                   { label: 'Utility', amount: 81000000, color: '#16B6A8' }
                 ]},
@@ -113,7 +119,7 @@
                 ]},
                 { label: 'Motor fuels excise taxes', amount: 891000000, color: '#16B6A8' },
                 { label: 'Alcoholic beverage excise taxes', amount: 81000000, color: '#16B659' },
-                { label: 'Cigarette and tobacco excise taxes', amount: 423000000, color: '#24B616' },
+                { label: 'Cigarette and tobacco excise taxes <sub>2</sub>', amount: 423000000, color: '#24B616' },
                 { label: 'Insurance premiums taxes', amount: 395000000, color: '#1624B6' },
                 { label: 'Gambling taxes', amount: 41000000, color: '#68EB5C' },
                 { label: 'MinnesotaCare taxes', amount: 557000000, color: '#35E425' },
@@ -121,7 +127,7 @@
               ]},
               { label: 'Total Income and Estate Taxes', amount: 9487000000, color: '#7F1051', children: [
                 { label: 'Individual income tax', amount: 8484000000, color: '#7F3E10' },
-                { label: 'Corporation franchise tax', amount: 830000000, color: '#7F7610' },
+                { label: 'Corporation franchise tax <sub>1</sub>', amount: 830000000, color: '#7F7610' },
                 { label: 'Estate tax', amount: 173000000, color: '#7F1019' }
               ]}
             ]},
