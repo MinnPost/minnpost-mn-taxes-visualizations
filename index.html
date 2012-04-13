@@ -71,6 +71,8 @@
   	</div>
     
     <p class="footnote">Projected 2013 State and Local Tax Collections by Type of Tax and Taxpayer Category.  Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  PTR = Property Tax Refund.  <sub>1</sub> Includes taconite/iron ore occupation tax.  <sub>2</sub> Includes Health Impact Fee.  <sub>3</sub> Includes resorts and railroads.  <sub>4</sub> Farm includes timber.</p>
+    
+    <p class="footnote">All icons courtesy The Noun Project collection: 'City' by Thibault Geffrey, 'Minnesota' symbol by The Noun Project, 'Briefcase' by the Noun Project, 'Car' by Okan Benn, 'Businessperson' by Douglas Nash, 'Piggy Bank' by Brock Kenzler, 'Money' by Nick Levesque, 'House' by John Caserta, 'Shopping Cart' by John Caserta.</p>
   
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery-1.5.2.min.js"><\/script>')</script>
     
@@ -118,11 +120,11 @@
       (function($) {
         $(document).ready(function() {
           // Build data object
-    			var data = { label: 'Total', amount: 27071000000, color: '#801019', taxonomy: "tester", name: "testing", children: [
-            { label: 'Total Local Taxes', amount: 8418000000, color: '#107F3E', children: [
-              { label: 'Property Taxes', amount: 7970000000, color: '#197F10', children: [
-                { label: 'General Property Tax', amount: 7879000000, color: '#107F3E', children: [
-                  { label: 'Homeowners (before PTR)', amount: 4044000000, color: '#24B616' },
+    			var data = { label: 'Total', amount: 27071000000, color: '#801019', taxonomy: 'np', name: 'total', children: [
+            { label: 'Total Local Taxes', amount: 8418000000, color: '#107F3E', taxonomy: 'np', name: 'total_local', children: [
+              { label: 'Property Taxes', amount: 7970000000, color: '#197F10', taxonomy: 'np', name: 'property', children: [
+                { label: 'General Property Tax', amount: 7879000000, color: '#107F3E', taxonomy: 'np', name: 'general_property', children: [
+                  { label: 'Homeowners (before PTR)', amount: 4044000000, color: '#24B616', taxonomy: 'np', name: 'homeowners' },
                   { label: 'Residential recreational property', amount: 188000000, color: '#24B616' },
                   { label: 'Commercial <sub>3</sub>', amount: 1494000000, color: '#24B616' },
                   { label: 'Industrial', amount: 417000000, color: '#24B616' },
@@ -133,25 +135,25 @@
                 { label: 'Mining Production Taxes (taconite)', amount: 91000000, color: '#107F76' },
                 { label: '', amount: 0, color: '#FFFFFF' } // placeholder
               ]},
-              { label: 'Taxes on consumption', amount: 448000000, color: '#517F10', children: [
-                { label: 'Local Sales Taxes', amount: 325000000, color: '#73B616' },
+              { label: 'Taxes on consumption', amount: 448000000, color: '#517F10', taxonomy: 'np', name: 'tax_consum', children: [
+                { label: 'Local Sales Taxes', amount: 325000000, color: '#73B616', taxonomy: 'np', name: 'local_sales' },
                 { label: 'Local Gross Earnings Taxes', amount: 123000000, color: '#73B616' }
               ]},
               { label: '', amount: 0, color: '#FFFFFF' } // placeholder
             ]},
-            { label: 'Total State Taxes', amount: 18653000000, color: '#76107F', children: [
-              { label: 'Total Property Taxes', amount: 1550000000, color: '#3E107F', children: [
-                { label: 'State Property Tax', amount: 798000000, color: '#1673B6', children: [
+            { label: 'Total State Taxes', amount: 18653000000, color: '#76107F', taxonomy: 'np', name: 'total_state_taxes', children: [
+              { label: 'Total Property Taxes', amount: 1550000000, color: '#3E107F', taxonomy: 'np', name: 'total_property', children: [
+                { label: 'State Property Tax', amount: 798000000, color: '#1673B6', taxonomy: 'np', name: 'state_property', children: [
                   { label: 'Residential recreational property', amount: 40000000, color: '#2595E4' },
                   { label: 'Commercial <sub>3</sub>', amount: 528000000, color: '#5CAFEB' },
                   { label: 'Industrial', amount: 149000000, color: '#1624B6' },
                   { label: 'Utility', amount: 81000000, color: '#16B6A8' }
                 ]},
-                { label: 'Motor vehicle registration tax', amount: 594000000, color: '#16B6A8' },
+                { label: 'Motor vehicle registration tax', amount: 594000000, color: '#16B6A8', taxonomy: 'np', name: 'motor_vehicle' },
                 { label: 'Mortgage and deed taxes', amount: 158000000, color: '#16B659' }
               ]},
-              { label: 'Total Consumption Taxes', amount: 8167000000, color: '#A816B6', children: [
-                { label: 'Total sales tax', amount: 5709000000, color: '#1673B6', children: [
+              { label: 'Total Consumption Taxes', amount: 8167000000, color: '#A816B6', taxonomy: 'np', name: 'total_consum', children: [
+                { label: 'Total sales tax', amount: 5709000000, color: '#1673B6', taxonomy: 'np', name: 'total_sales', children: [
                   { label: 'General sales/use tax', amount: 5134000000, color: '#2595E4' },
                   { label: 'Sales tax on motor vehicles', amount: 575000000, color: '#5CAFEB' }
                 ]},
@@ -163,8 +165,8 @@
                 { label: 'MinnesotaCare taxes', amount: 557000000, color: '#35E425' },
                 { label: 'Solid waste management taxes', amount: 70000000, color: '#73B616' }
               ]},
-              { label: 'Total Income and Estate Taxes', amount: 9487000000, color: '#7F1051', children: [
-                { label: 'Individual income tax', amount: 8484000000, color: '#7F3E10' },
+              { label: 'Total Income and Estate Taxes', amount: 9487000000, color: '#7F1051', taxonomy: 'np', name: 'total_income_estate', children: [
+                { label: 'Individual income tax', amount: 8484000000, color: '#7F3E10', taxonomy: 'np', name: 'ind_income' },
                 { label: 'Corporation franchise tax <sub>1</sub>', amount: 830000000, color: '#7F7610' },
                 { label: 'Estate tax', amount: 173000000, color: '#7F1019' }
               ]}
@@ -176,9 +178,47 @@
     			// Styles
     			// https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/styles/icons/admin-culture.svg
     			BubbleTree.Styles = BubbleTree.Styles || {};
-          BubbleTree.Styles.tester = {
-            'testing': { icon: 'admin-culture.svg' }
-          };
+          BubbleTree.Styles.NP = {
+            'total': { icon: 'noun_project_931.svg' },
+            'total_state_taxes': { icon: 'noun_project_326.svg' }, // noun_project_326
+            'total_income_estate': { icon: 'noun_project_401.svg' },
+            'ind_income': { icon: 'noun_project_1673.svg' },
+            'total_consum': { icon: 'noun_project_925.svg' },
+            'total_sales': { icon: 'noun_project_1230.svg' },
+            'total_property': { icon: 'noun_project_1439.svg' },
+            'state_property': { icon: 'noun_project_607.svg' },
+            'motor_vehicle': { icon: 'noun_project_1335.svg' },
+            
+            'total_local': { icon: 'noun_project_1566.svg' },
+            'property': { icon: 'noun_project_607.svg' },
+            'general_property': { icon: 'noun_project_605.svg' },
+            'homeowners': { icon: 'noun_project_1439.svg' },
+            'tax_consum': { icon: 'noun_project_925.svg' },
+            'local_sales': { icon: 'noun_project_1230.svg' }
+          };   
+          
+          /*
+          Total: noun_project_931
+          
+          STATE
+          Total State Taxes: noun_project_326
+          Total Income and Estate Taxes: noun_project_401
+          Individual Income Tax: noun_project_1673
+          Total Consumption Taxes: noun_project_925
+          Total Sales Tax: noun_project_1230
+          Total Property Taxes: noun_project_1439
+          State Property Tax: noun_project_607
+          Motor Vehicle Registration Tax: noun_project_1335
+          
+          
+          LOCAL
+          Total Local Taxes: noun_project_1566
+          Property Taxes: noun_project_607
+          General Property Tax: noun_project_605
+          Homeowners (before PTR): noun_project_1439
+          Taxes on Consumption: noun_project_925 
+          Local Sales Tax: noun_project_1230
+          */
           
           // Create tooltip. 
           var $tooltip = $('<div class="tooltip">Tooltip</div>');
@@ -207,12 +247,12 @@
     			var thisBubble = new BubbleTree({
     				data: data,
     				container: '.bubbletree',
-    				tooltipCallback: tooltip
-						//bubbleType: 'icon',
-						//rootPath: '',
-						//bubbleStyles: {
-						//	'tester':  BubbleTree.Styles.tester
-						//}
+    				tooltipCallback: tooltip,
+						bubbleType: 'icon',
+						rootPath: 'icons/',
+						bubbleStyles: {
+							'np':  BubbleTree.Styles.NP
+						}
     			});
         });
       })(jQuery);
