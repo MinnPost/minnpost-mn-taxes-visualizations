@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>MinnPost</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link type="text/css" rel="stylesheet" media="all" href="http://www.minnpost.com/sites/default/files/css/css_bb801627df93671ec2cf2a1c9ecf4ad2.css" />
+  <link type="text/css" rel="stylesheet" media="screen" href="http://www.minnpost.com/sites/default/files/css/css_b833827e9fdb99e83e393d38c32a71fd.css" />
+  <link type="text/css" rel="stylesheet" media="print" href="http://www.minnpost.com/sites/default/files/css/css_dd48b5b093a35515052acfc42613d628.css" />
+  <!--[if IE]>
+      <link rel="stylesheet" href="http://www.minnpost.com/sites/default/themes/derma/inc/css/ie.css?j" type="text/css">
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+</head>
+<body class="front logged-in page-home one-sidebar sidebar-right admin-nw admin-vertical admin-df  one-sidebar sidebar-right">
+
+
+  <!-- Embed Start -->
+  <div class="node-body fieldlayout node-field-body minndata-embed">
+    <style type="text/css">
+      .js-dependent,
+      .hide {
+        display: none;
+      }
+      
+      .footnote {
+        font-size: .75em;
+        font-style: italic;
+        color: #414141;
+        margin-top: 1em;
+      }
+      
+      .minndata-embed table thead {
+        font-size: .75em;
+      }
+      .minndata-embed table tfoot tr {
+        background-color: #DDDDDD;
+      }
+      .minndata-embed table tfoot tr.row-totals {
+        background-color: #AAAAAA;
+      }
+      
+      .minndata-embed table .income {
+        min-width: 185px;
+      }
+      
+      #mn-budget {
+        height: 420px;
+      }
+      
+      /** Media queries **/
+      @media all and (max-width: 750px) {
+      }
+    </style>
+    
+    <h4>Where do your Minnesota tax dollars go?</h4>
+    
+    <div id="mn-budget"></div>
+    
+    <p class="footnote">Total State 2012-13 Operating Budget, February 2012 Forecast.  Data provided by <a href="http://www.mmb.state.mn.us/doc/budget/report-pie/all-feb12.pdf">Minnesota Management and Budget</a>, based on February 2012 forecast.</p>
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      
+      // Visualizaiton
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Department');
+        data.addColumn('number', 'Budget');
+        data.addRows([
+          ['Health & Human Services', {v: 26112000000, f: '$26,112 M'}],
+          ['K-12 Education', {v: 15809000000, f: '$15,809 M'}],
+          ['Transportation', {v: 6136000000, f: '$6,136 M'}],
+          ['Property Tax Aids & Credits', {v: 2829000000, f: '$2,829 M'}],
+          ['Higher Education', {v: 2633000000, f: '$2,633 M'}],
+          ['Public Safety', {v: 2252000000, f: '$2,252 M'}],
+          ['Environment, Energy & Nat Res', {v: 1998000000, f: '$1,998 M'}],
+          ['Debt Service & Other', {v: 1689000000, f: '$1,689 M'}],
+          ['State Government', {v: 1586000000, f: '$1,5862 M'}],
+          ['Economic Development', {v: 1205000000, f: '$1,205 M'}],
+          ['Agriculture', {v: 182000000, f: '$182 M'}]
+        ]);
+        var options = {
+          title: '',
+          colors: ['#801019', '#7F3E10', '#7F7610', '#517F10', '#197F10', '#107F3E', '#107F76', '#10517F', '#10197F', '#3E107F', '#76107F', '#7F1051', '#B61624', '#E42535', '#16B6A8', '#25E4D4'],
+          'tooltip.text': 'percentage'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('mn-budget'));
+        chart.draw(data, options);
+      }
+    </script>
+  </div>
+  <!-- Embed End -->
+
+
+</body>
+</html>
