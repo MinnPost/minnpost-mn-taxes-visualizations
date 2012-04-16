@@ -62,7 +62,9 @@
       }
     </style>
     
+    <!--
     <h4 class="bubbletree-title">Taxes in Minnesota: Where do they come from?</h4>
+    -->
     
     <div class="bubbletree-container clearfix">
       <div class="bubbletree-wrapper">
@@ -125,11 +127,12 @@
         	jQuery.class2type[ "[object " + name + "]" ] = name.toLowerCase();
         });
     	}
-    	jQuery.hasOwn = Object.prototype.hasOwnProperty;
+    	jQuery.hasOwn = jQuery.hasOw || Object.prototype.hasOwnProperty;
+    	jQuery.toString = jQuery.toString || Object.prototype.toString;
     	jQuery.type = jQuery.type || function( obj ) {
     		return obj == null ?
     			String( obj ) :
-    			jQuery.class2type[ toString.call(obj) ] || "object";
+    			jQuery.class2type[ jQuery.toString.call(obj) ] || "object";
     	};
     	jQuery.isWindow = jQuery.isWindow || function( obj ) {
         return obj && typeof obj === "object" && "setInterval" in obj;
@@ -215,7 +218,6 @@
             ]},
             { label: '', amount: 0, color: '#FFFFFF' } // placeholder
     		  ]};
-    			//console.log(data);
     			
     			// Styles
     			BubbleTree.Styles = BubbleTree.Styles || {};
@@ -284,16 +286,26 @@
             }
           };
     			
-          var thisBubble = new BubbleTree({
-            data: data,
-            container: '.bubbletree',
-            tooltipCallback: tooltip,
-            bubbleType: 'icon',
-            rootPath: '/sites/default/files/images/articles/mn-tax-bubbletree/', // For local use: 'icons/'
-            bubbleStyles: {
-              'np':  BubbleTree.Styles.NP
-            }
-          });
+    			// Bubble tree is not that great and icons and IE don't mix. :(
+    			if ($.browser.msie) {
+            var thisBubble = new BubbleTree({
+              data: data,
+              container: '.bubbletree',
+              tooltipCallback: tooltip
+            });
+          }
+          else {
+            var thisBubble = new BubbleTree({
+              data: data,
+              container: '.bubbletree',
+              //tooltipCallback: tooltip,
+              bubbleType: 'icon',
+              rootPath: 'icons/', //'/sites/default/files/images/articles/mn-tax-bubbletree/', // For local use: 'icons/'
+              bubbleStyles: {
+                'np':  BubbleTree.Styles.NP
+              }
+            });
+          }
         });
       })(jQuery);
     </script>
