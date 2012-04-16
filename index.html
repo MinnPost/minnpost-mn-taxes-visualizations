@@ -72,7 +72,7 @@
     
     <p class="footnote">Projected 2013 State and Local Tax Collections by Type of Tax and Taxpayer Category.  Projected 2013 data from the <a href="http://taxes.state.mn.us/legal_policy/Documents/other_supporting_content_2011_tax_incidence_study_links.pdf">2011 Minnesota Tax Incidence Study</a>.  PTR = Property Tax Refund.  <sub>1</sub> Includes taconite/iron ore occupation tax.  <sub>2</sub> Includes Health Impact Fee.  <sub>3</sub> Includes resorts and railroads.  <sub>4</sub> Farm includes timber.</p>
     
-    <p class="footnote">All icons courtesy The Noun Project collection: 'City' by Thibault Geffrey, 'Minnesota' symbol by The Noun Project, 'Briefcase' by the Noun Project, 'Car' by Okan Benn, 'Businessperson' by Douglas Nash, 'Piggy Bank' by Brock Kenzler, 'Money' by Nick Levesque, 'House' by John Caserta, 'Shopping Cart' by John Caserta.</p>
+    <p class="footnote">All icons courtesy <a href="http://thenounproject.com/">The Noun Project</a> (collection: <em>Minnesota</em> symbol by The Noun Project) and the <a href="http://okfn.org/">Open Knowledge Foundation's</a> <a href="https://github.com/okfn/bubbletree">Bubbletree library</a>.</p>
   
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery-1.5.2.min.js"><\/script>')</script>
     
@@ -176,48 +176,46 @@
     			//console.log(data);
     			
     			// Styles
-    			// https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/styles/icons/admin-culture.svg
     			BubbleTree.Styles = BubbleTree.Styles || {};
           BubbleTree.Styles.NP = {
-            'total': { icon: 'noun_project_931.svg' },
-            'total_state_taxes': { icon: 'noun_project_326.svg' }, // noun_project_326
-            'total_income_estate': { icon: 'noun_project_401.svg' },
-            'ind_income': { icon: 'noun_project_1673.svg' },
-            'total_consum': { icon: 'noun_project_925.svg' },
-            'total_sales': { icon: 'noun_project_1230.svg' },
-            'total_property': { icon: 'noun_project_1439.svg' },
-            'state_property': { icon: 'noun_project_607.svg' },
-            'motor_vehicle': { icon: 'noun_project_1335.svg' },
+            'total': { icon: 'dollar.svg' },
+            'total_state_taxes': { icon: 'noun_project_326a.svg' },
+            'total_income_estate': { icon: 'other-medical.svg' },
+            'ind_income': { icon: 'family.svg' },
+            'total_consum': { icon: 'economic-aid.svg' },
+            'total_sales': { icon: 'public-debt-edit.svg' },
+            'total_property': { icon: 'government-uk.svg' },
+            'state_property': { icon: 'our-streets.svg' },
+            'motor_vehicle': { icon: 'car.svg' },
             
-            'total_local': { icon: 'noun_project_1566.svg' },
-            'property': { icon: 'noun_project_607.svg' },
-            'general_property': { icon: 'noun_project_605.svg' },
-            'homeowners': { icon: 'noun_project_1439.svg' },
-            'tax_consum': { icon: 'noun_project_925.svg' },
-            'local_sales': { icon: 'noun_project_1230.svg' }
+            'total_local': { icon: 'money.svg' },
+            'property': { icon: 'government-uk.svg' },
+            'general_property': { icon: 'energy2.svg' },
+            'homeowners': { icon: 'housing.svg' },
+            'tax_consum': { icon: 'economic-aid.svg' },
+            'local_sales': { icon: 'public-debt-edit.svg' }
           };   
           
           /*
-          Total: noun_project_931
-          
+          Total: dollar
+
           STATE
-          Total State Taxes: noun_project_326
-          Total Income and Estate Taxes: noun_project_401
-          Individual Income Tax: noun_project_1673
-          Total Consumption Taxes: noun_project_925
-          Total Sales Tax: noun_project_1230
-          Total Property Taxes: noun_project_1439
-          State Property Tax: noun_project_607
-          Motor Vehicle Registration Tax: noun_project_1335
-          
+          Total State Taxes: noun_project_326a
+          Total Income and Estate Taxes: other-medical
+          Individual Income Tax: family
+          Total Consumption Taxes: economic-aid
+          Total Sales Tax: public-debt-edit
+          Total Property Taxes: government-uk
+          State Property Tax: our-streets
+          Motor Vehicle Registration Tax: car
           
           LOCAL
-          Total Local Taxes: noun_project_1566
-          Property Taxes: noun_project_607
-          General Property Tax: noun_project_605
-          Homeowners (before PTR): noun_project_1439
-          Taxes on Consumption: noun_project_925 
-          Local Sales Tax: noun_project_1230
+          Total Local Taxes: money
+          Property Taxes: government-uk 
+          General Property Tax: energy2
+          Homeowners (before PTR): housing
+          Taxes on Consumption: economic-aid
+          Local Sales Tax: public-debt-edit 
           */
           
           // Create tooltip. 
