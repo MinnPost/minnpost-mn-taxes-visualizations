@@ -242,16 +242,16 @@
             }
           };
     			
-    			var thisBubble = new BubbleTree({
-    				data: data,
-    				container: '.bubbletree',
-    				tooltipCallback: tooltip,
-						bubbleType: 'icon',
-						rootPath: 'icons/',
-						bubbleStyles: {
-							'np':  BubbleTree.Styles.NP
-						}
-    			});
+          var thisBubble = new BubbleTree({
+            data: data,
+            container: '.bubbletree',
+            tooltipCallback: tooltip,
+            bubbleType: 'icon',
+            rootPath: '/sites/default/files/images/articles/mn-tax-bubbletree/', // For local use: 'icons/'
+            bubbleStyles: {
+              'np':  BubbleTree.Styles.NP
+            }
+          });
         });
       })(jQuery);
     </script>
