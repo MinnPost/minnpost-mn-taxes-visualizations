@@ -115,6 +115,48 @@
         
         me.init(arguments);
       };
+      
+      // Do to the fact that MinnPost is currently running a very old version of jQuery,
+      // we need to add some functions
+    	if (typeof jQuery.class2type == 'undefined') {
+        jQuery.class2type = {};
+        // Populate the class2type map
+        jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
+        	jQuery.class2type[ "[object " + name + "]" ] = name.toLowerCase();
+        });
+    	}
+    	jQuery.hasOwn = Object.prototype.hasOwnProperty;
+    	jQuery.type = jQuery.type || function( obj ) {
+    		return obj == null ?
+    			String( obj ) :
+    			jQuery.class2type[ toString.call(obj) ] || "object";
+    	};
+    	jQuery.isWindow = jQuery.isWindow || function( obj ) {
+        return obj && typeof obj === "object" && "setInterval" in obj;
+      };
+      jQuery.isPlainObject = jQuery.isPlainObject || function( obj ) {
+    		// Must be an Object.
+    		// Because of IE, we also have to check the presence of the constructor property.
+    		// Make sure that DOM nodes and window objects don't pass through, as well
+    		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
+    			return false;
+    		}
+    
+    		// Not own constructor property must be Object
+    		if ( obj.constructor &&
+    			!jQuery.hasOwn.call(obj, "constructor") &&
+    			!jQuery.hasOwn.call(obj.constructor.prototype, "isPrototypeOf") ) {
+    			return false;
+    		}
+    
+    		// Own properties are enumerated firstly, so to speed up,
+    		// if last one is own, then all properties are own.
+    
+    		var key;
+    		for ( key in obj ) {}
+    
+    		return key === undefined || jQuery.hasOwn.call( obj, key );
+    	};
     
       // Namespace jQuery
       (function($) {
